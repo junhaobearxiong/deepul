@@ -2,6 +2,9 @@
 *.DS_Store
 *.egg-info
 *__pycache__
-*.png
+# *.png
+*.pth
 *.pkl
 *.jpg
+build/
+*.pt
