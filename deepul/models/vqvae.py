@@ -52,7 +52,11 @@ class VQVAE(nn.Module):
         x = x.to(next(self.parameters()).device)
         z_e = self.encoder(x)
         z_e = self.pre_quantization_conv(z_e)
+<<<<<<< HEAD
         _, _, _, _, z_index = self.vector_quantization(z_e)
+=======
+        z_index = self.vector_quantization(z_e)
+>>>>>>> upstream/master
         return z_index
 
     def decode(self, z_index: np.ndarray) -> np.ndarray:
@@ -71,6 +75,7 @@ class VQVAE(nn.Module):
         return x_hat.permute(0, 2, 3, 1).detach().cpu().numpy()
 
     def forward(self, x, verbose=False):
+<<<<<<< HEAD
         z_e = self.encoder(x)
 
         z_e = self.pre_quantization_conv(z_e)
@@ -84,3 +89,6 @@ class VQVAE(nn.Module):
             assert False
 
         return embedding_loss, x_hat, perplexity
+=======
+        raise NotImplementedError
+>>>>>>> upstream/master
